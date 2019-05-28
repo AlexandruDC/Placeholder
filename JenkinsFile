@@ -59,7 +59,7 @@ pipeline {
 
               //  def HOCKEYAPP_ID = getHockeyAppId("care", "myelectrolux-staging")
                 def BUILD_LIST = sh (
-            script: "curl -H 'X-HockeyAppToken:f670dc1b1b05467ea48647bef0d31016' https://rink.hockeyapp.net/api/2/apps/${HOCKEYAPP_ID}/app_versions.json | jq -r '.app_versions[:5][].shortversion'",
+            script: "curl -H 'X-HockeyAppToken:f670dc1b1b05467ea48647bef0d31016' https://rink.hockeyapp.net/api/2/apps/cf116a138086435dbc04f1678b50cc6d}/app_versions.json | jq -r '.app_versions[:5][].shortversion'",
             returnStdout: true).trim()
                 parameters: [choice(name: 'BUILD_VERSION', choices: ${BUILD_LIST}, description: 'Choose build version')]
 
